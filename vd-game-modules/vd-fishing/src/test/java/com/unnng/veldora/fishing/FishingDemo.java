@@ -28,13 +28,14 @@ public class FishingDemo {
 
         // 执行钓鱼
         FishingManager manager = new FishingManager();
-        Fish result = manager.castRod(context);
-
-        // 输出结果
-        if (result != null) {
-            System.out.println("捕获: " + result.getName() + " (" + result.getRarity().getDescription() + ")");
-        } else {
-            System.out.println("空钩！什么也没钓到。");
+        for (int i = 0; i < 20; i++) {
+            Fish result = manager.castRod(context);
+            // 输出结果
+            if (result != null) {
+                System.out.println("捕获: " + result.getName() + " (" + result.getRarity().getDescription() + ")");
+            } else {
+                System.out.println("空钩！什么也没钓到。");
+            }
         }
     }
 }

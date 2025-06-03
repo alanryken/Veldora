@@ -2,6 +2,7 @@ package com.unnng.veldora.fishing;
 
 import com.unnng.veldora.common.inter.IEffectProvider;
 import com.unnng.veldora.enums.Rarity;
+import com.unnng.veldora.fishing.data.local.FishResources;
 import com.unnng.veldora.fishing.entity.Fish;
 
 import java.util.*;
@@ -18,10 +19,7 @@ public class FishingManager {
 
     // 初始化鱼类（示例数据）
     private void initializeFish() {
-        availableFish.add(new Fish(1, "鲤鱼", Rarity.COMMON, 30, "常见淡水鱼"));
-        availableFish.add(new Fish(2, "彩虹鳟鱼", Rarity.RARE, 250, "鳞片七彩"));
-        availableFish.add(new Fish(3, "碧玉鲨", Rarity.EPIC, 1000, "翡翠鳞片"));
-        availableFish.add(new Fish(4, "幻影金枪鱼", Rarity.LEGENDARY, 2500, "透明身体"));
+        availableFish = FishResources.fishList;
     }
 
     // 执行一次钓鱼

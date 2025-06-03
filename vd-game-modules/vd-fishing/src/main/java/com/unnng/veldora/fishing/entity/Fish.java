@@ -1,16 +1,17 @@
 package com.unnng.veldora.fishing.entity;
 
+import com.unnng.veldora.entity.Resource;
 import com.unnng.veldora.enums.Rarity;
-import lombok.AllArgsConstructor;
+import com.unnng.veldora.enums.ResourceTypeEnum;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
-@AllArgsConstructor
-public class Fish {
-    private Integer id;
-    private String name;
-    private Rarity rarity;//等级
-    private double price;
-    private String des;
+@NoArgsConstructor
+public class Fish extends Resource {
+
+    public Fish(Integer id, String name, Rarity rarity, double price, String des) {
+        super(id, name, rarity, price, des, ResourceTypeEnum.FISHING);
+    }
 }

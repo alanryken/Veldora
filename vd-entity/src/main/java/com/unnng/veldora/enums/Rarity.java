@@ -7,11 +7,11 @@ package com.unnng.veldora.enums;
  */
 public enum Rarity {
     COMMON(1, 0.7, "White", "普通"),
-    Uncommon(2, 0.5, "Green", "优秀"),
+    UNCOMMON(2, 0.5, "Green", "优秀"),
     RARE(3, 0.2, "Blue", "稀有"),
     EPIC(4, 0.05, "Purple", "史诗"),
     LEGENDARY(5, 0.01, "Orange", "传说"),
-    Mythic(6, 0.001, "Rainbow", "神话");
+    MYTHIC(6, 0.001, "Rainbow", "神话");
 
     private final int level;
     private final double baseProbability;
