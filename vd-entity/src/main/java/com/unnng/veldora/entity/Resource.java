@@ -4,6 +4,8 @@ import com.unnng.veldora.enums.Rarity;
 import com.unnng.veldora.enums.ResourceTypeEnum;
 import lombok.Data;
 
+import java.util.Objects;
+
 @Data
 public class Resource {
     private Integer id;
