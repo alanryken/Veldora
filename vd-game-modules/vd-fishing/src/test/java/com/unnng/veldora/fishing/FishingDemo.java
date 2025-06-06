@@ -24,7 +24,7 @@ public class FishingDemo {
         baitModifiers.put(Rarity.RARE, - Rarity.RARE.getBaseProbability());
         baitModifiers.put(Rarity.EPIC, - Rarity.EPIC.getBaseProbability());
         baitModifiers.put(Rarity.LEGENDARY, 1.0);
-        Bait starshineBait = new Bait("星辰鱼饵", baitModifiers, 100000);
+        Bait starshineBait = new Bait("星辰鱼饵", baitModifiers, 20);
 
         // 创建钓鱼上下文
         FishingContext context = new FishingContext();
@@ -34,7 +34,7 @@ public class FishingDemo {
         // 执行钓鱼
         FishingManager manager = new FishingManager();
         Map<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 10; i++) {
             Fish result = manager.castRod(context);
             // 输出结果
             if (result != null) {

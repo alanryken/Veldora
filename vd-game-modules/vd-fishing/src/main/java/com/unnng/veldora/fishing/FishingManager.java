@@ -40,10 +40,10 @@ public class FishingManager {
             String name = fish.getRarity().name();
             Double aDouble = probabilities.getOrDefault(name, 0.0);
             cumulative += aDouble;
-            for (IEffectProvider effect : context.getActiveEffects()) {
-                effect.use();
-            }
             if (roll <= cumulative) {
+                for (IEffectProvider effect : context.getActiveEffects()) {
+                    effect.use();
+                }
                 return fishEntry.getValue(); // 返回捕获的鱼
             }
         }
