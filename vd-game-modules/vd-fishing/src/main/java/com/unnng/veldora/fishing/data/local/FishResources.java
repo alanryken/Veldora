@@ -10,8 +10,6 @@ import java.util.Map;
 
 public class FishResources {
 
-    public static List<Fish> fishList = new ArrayList<>();
-
     public static Map<Integer, Fish> fishMap = new LinkedHashMap<>();
 
     static {

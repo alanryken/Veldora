@@ -17,14 +17,14 @@ public class FishingDemo {
 //        weatherModifiers.put(Rarity.LEGENDARY, -0.2);
         Weather rainy = new Weather("雨天", weatherModifiers);
 
-        // 定义鱼饵（星辰鱼饵：传说鱼+100%）
+        // 定义鱼饵（星辰鱼饵：传说鱼+100% 且不会命中低等鱼类）
         Map<Rarity, Double> baitModifiers = new HashMap<>();
         baitModifiers.put(Rarity.COMMON, - Rarity.COMMON.getBaseProbability());
         baitModifiers.put(Rarity.UNCOMMON, - Rarity.UNCOMMON.getBaseProbability());
         baitModifiers.put(Rarity.RARE, - Rarity.RARE.getBaseProbability());
         baitModifiers.put(Rarity.EPIC, - Rarity.EPIC.getBaseProbability());
         baitModifiers.put(Rarity.LEGENDARY, 1.0);
-        Bait starshineBait = new Bait("星辰鱼饵", baitModifiers, 20);
+        Bait starshineBait = new Bait("星辰鱼饵", baitModifiers, 20000);
 
         // 创建钓鱼上下文
         FishingContext context = new FishingContext();
@@ -34,7 +34,7 @@ public class FishingDemo {
         // 执行钓鱼
         FishingManager manager = new FishingManager();
         Map<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10000; i++) {
             Fish result = manager.castRod(context);
             // 输出结果
             if (result != null) {

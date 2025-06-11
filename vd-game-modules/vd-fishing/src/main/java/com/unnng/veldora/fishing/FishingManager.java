@@ -22,24 +22,36 @@ public class FishingManager {
     private void initializeFish() {
     }
 
+    /**
+     * 构建轮盘赌区间：
+     * 每种鱼的概率区间是 [前一个cumulative值, 当前cumulative值]。
+     * 例如：
+     * 鱼A：[0.0, 0.5)
+     * 鱼B：[0.5, 0.8)
+     * 鱼C：[0.8, 1.0]
+     * 随机数 roll 落在哪个区间，就选择对应的鱼。
+     *
+     * @param context
+     * @return
+     */
     // 执行一次钓鱼
     public Fish castRod(FishingContext context) {
         // 计算每种鱼的最终捕获概率
-        Map<String, Double> probabilities = calculateProbabilities(context);
+        Map<String, Double> probabilities = this.calculateProbabilities(context);
         double totalProbability = 0;//所有鱼的概率和
         for (Fish value : availableFish.values()) {
             totalProbability += probabilities.getOrDefault(value.getRarity().name(), 0.0);
         }
         // 随机决定结果
-        double roll = random.nextDouble() * totalProbability;
-        double cumulative = 0;
+        double roll = random.nextDouble() * totalProbability; //先确定一个值
+        double cumulative = 0; //积累
 
         for (Map.Entry<Integer, Fish> fishEntry : availableFish.entrySet()) {
             //获取当前鱼的概率
             Fish fish = fishEntry.getValue();
             String name = fish.getRarity().name();
             Double aDouble = probabilities.getOrDefault(name, 0.0);
-            cumulative += aDouble;
+            cumulative += aDouble;//轮盘赌算法
             if (roll <= cumulative) {
                 for (IEffectProvider effect : context.getActiveEffects()) {
                     effect.use();
